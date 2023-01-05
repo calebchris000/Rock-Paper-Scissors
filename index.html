@@ -9,6 +9,15 @@
 </head>
 
 <body>
+    <style>
+        button{
+            border: 2px solid black;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            display: flex;
+        }
+    </style>
     <script>
         let humanScore = 0; let computerScore = 0
         function loopedRound(number){
@@ -35,7 +44,7 @@
         }
 
         function userPlay() {
-            let user = prompt("What is your hand?");
+            let user = prompt("What is your hand? (Rock, Paper, Scissors)");
             return playRound(user, computerPlay())
 
         }
@@ -76,7 +85,7 @@
 
     </script>
 
-    <button onclick="loopedRound()">CLICK</button>
+    <button onclick="loopedRound()">CLICK TO START</button>
 </body>
 
 </html>
