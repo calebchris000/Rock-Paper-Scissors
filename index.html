@@ -10,16 +10,27 @@
 
 <body>
     <script>
-
-        function loopedRound(){
-            for (let i = 0; i < 5; i++) {
+        let humanScore = 0; let computerScore = 0
+        function loopedRound(number){
+            let numOfGame = parseInt(prompt("How many game?"))
+            for (let i = 0; i < numOfGame; i++) {
                 userPlay()
             }
+            whoWon()
+            humanScore = computerScore =0
+        }
+
+        function whoWon(){
+            
+            humanScore> computerScore? alert(`You won by ${humanScore} : ${computerScore}`):
+            computerScore> humanScore? alert(`You lost by ${computerScore} : ${humanScore}`):
+            alert("There is no winner")
+            
         }
 
         function computerPlay() {
             let hands = ['Rock', 'Paper', 'Scissors'];
-            let randomPick = Math.ceil(Math.random() * hands.length);
+            let randomPick = Math.floor(Math.random() * 3);
             return hands[randomPick]
         }
 
@@ -41,19 +52,23 @@
 
             if (userlowercased == "rock" && computerLowerCased == "scissors") {
                 alert(`You Win! ${user} beats ${computer}`)
+                humanScore+=1
                 return
             }
             if (userlowercased == "paper" && computerLowerCased == "rock") {
                 alert(`You Win! ${user} beats ${computer}`)
+                humanScore+=1
                 return
             }
             if (userlowercased == "scissors" && computerLowerCased == "paper") {
                 alert(`You Win! ${user} beats ${computer}`)
+                humanScore+=1
                 return
             }
 
             else {
                 alert(`You Lose! ${computer} beats ${user}`)
+                computerScore+=1
                 return
             }
 
