@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <script>
+        let humanScore = 0; let computerScore = 0
+        function loopedRound(number){
+            let numOfGame = parseInt(prompt("How many game?"))
+            for (let i = 0; i < numOfGame; i++) {
+                userPlay()
+            }
+            whoWon()
+            humanScore = computerScore =0
+        }
+
+        function whoWon(){
+            
+            humanScore> computerScore? alert(`You won by ${humanScore} : ${computerScore}`):
+            computerScore> humanScore? alert(`You lost by ${computerScore} : ${humanScore}`):
+            alert("There is no winner")
+            
+        }
+
+        function computerPlay() {
+            let hands = ['Rock', 'Paper', 'Scissors'];
+            let randomPick = Math.floor(Math.random() * 3);
+            return hands[randomPick]
+        }
+
+        function userPlay() {
+            let user = prompt("What is your hand?");
+            return playRound(user, computerPlay())
+
+        }
+
+        function playRound(user, computer) {
+
+            let userlowercased = user.toLowerCase();
+            let computerLowerCased = computer.toLowerCase();
+
+            if (userlowercased == computerLowerCased) {
+                alert("Its a tie")
+                return
+            }
+
+            if (userlowercased == "rock" && computerLowerCased == "scissors") {
+                alert(`You Win! ${user} beats ${computer}`)
+                humanScore+=1
+                return
+            }
+            if (userlowercased == "paper" && computerLowerCased == "rock") {
+                alert(`You Win! ${user} beats ${computer}`)
+                humanScore+=1
+                return
+            }
+            if (userlowercased == "scissors" && computerLowerCased == "paper") {
+                alert(`You Win! ${user} beats ${computer}`)
+                humanScore+=1
+                return
+            }
+
+            else {
+                alert(`You Lose! ${computer} beats ${user}`)
+                computerScore+=1
+                return
+            }
+
+        }
+
+    </script>
+
+    <button onclick="loopedRound()">CLICK</button>
+</body>
+
+</html>
