@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
 </head>
+
 <body>
     <script>
-        
-        function computerPlay(){
-            let hands = ['rock', 'paper', 'scissors'];
-            let randomPick = Math.ceil(Math.random() * hands.length);
-            return hands[randomPick] 
+
+        function loopedRound(){
+            for (let i = 0; i < 5; i++) {
+                userPlay()
+            }
         }
 
-        function play(userPlay, computerPlay){
-            
+        function computerPlay() {
+            let hands = ['Rock', 'Paper', 'Scissors'];
+            let randomPick = Math.ceil(Math.random() * hands.length);
+            return hands[randomPick]
         }
+
+        function userPlay() {
+            let user = prompt("What is your hand?");
+            return playRound(user, computerPlay())
+
+        }
+
+        function playRound(user, computer) {
+
+            let userlowercased = user.toLowerCase();
+            let computerLowerCased = computer.toLowerCase();
+
+            if (userlowercased == computerLowerCased) {
+                alert("Its a tie")
+                return
+            }
+
+            if (userlowercased == "rock" && computerLowerCased == "scissors") {
+                alert(`You Win! ${user} beats ${computer}`)
+                return
+            }
+            if (userlowercased == "paper" && computerLowerCased == "rock") {
+                alert(`You Win! ${user} beats ${computer}`)
+                return
+            }
+            if (userlowercased == "scissors" && computerLowerCased == "paper") {
+                alert(`You Win! ${user} beats ${computer}`)
+                return
+            }
+
+            else {
+                alert(`You Lose! ${computer} beats ${user}`)
+                return
+            }
+
+        }
+
     </script>
+
+    <button onclick="loopedRound()">CLICK</button>
 </body>
+
 </html>
