@@ -10,31 +10,46 @@
 
 <body>
     <style>
-        button{
-            border: 2px solid black;
-            width: 200px;
-            height: 200px;
+        #button {
+            border: 0px solid black;
+            width: 150px;
+            height: 100px;
             margin: 0 auto;
+            background-color: rgb(120, 120, 194);
+            font-family: Poppins;
+            font-weight: bolder;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .1s ease;
+            user-select: none;
+        }
+
+        #button:hover{
+            background-color: rgb(50, 50, 196);
+        }
+
+        #button:active{
+            background-color: rgb(120, 120, 194);
         }
     </style>
     <script>
         let humanScore = 0; let computerScore = 0
-        function loopedRound(number){
+        function loopedRound(number) {
             let numOfGame = parseInt(prompt("How many game?"))
             for (let i = 0; i < numOfGame; i++) {
                 userPlay()
             }
             whoWon()
-            humanScore = computerScore =0
+            humanScore = computerScore = 0
         }
 
-        function whoWon(){
-            
-            humanScore> computerScore? alert(`You won by ${humanScore} : ${computerScore}`):
-            computerScore> humanScore? alert(`You lost by ${computerScore} : ${humanScore}`):
-            alert("There is no winner")
-            
+        function whoWon() {
+
+            humanScore > computerScore ? alert(`You won by ${humanScore} : ${computerScore}`) :
+                computerScore > humanScore ? alert(`You lost by ${computerScore} : ${humanScore}`) :
+                    alert("There is no winner")
+
         }
 
         function computerPlay() {
@@ -61,23 +76,23 @@
 
             if (userlowercased == "rock" && computerLowerCased == "scissors") {
                 alert(`You Win! ${user} beats ${computer}`)
-                humanScore+=1
+                humanScore += 1
                 return
             }
             if (userlowercased == "paper" && computerLowerCased == "rock") {
                 alert(`You Win! ${user} beats ${computer}`)
-                humanScore+=1
+                humanScore += 1
                 return
             }
             if (userlowercased == "scissors" && computerLowerCased == "paper") {
                 alert(`You Win! ${user} beats ${computer}`)
-                humanScore+=1
+                humanScore += 1
                 return
             }
 
             else {
                 alert(`You Lose! ${computer} beats ${user}`)
-                computerScore+=1
+                computerScore += 1
                 return
             }
 
@@ -85,7 +100,7 @@
 
     </script>
 
-    <button onclick="loopedRound()">CLICK TO START</button>
+    <div id="button" onclick="loopedRound()">CLICK TO START</div>
 </body>
 
 </html>
