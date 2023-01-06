@@ -38,7 +38,7 @@
         let humanScore = 0; let computerScore = 0
 
         function loopedRound(number) {
-            let numOfGame = parseInt(prompt("How many game?"))
+            let numOfGame = (prompt("How many game?"))
             if (numOfGame === null) {
                alert("See you :)")
             }
@@ -67,14 +67,20 @@
         }
 
         function userPlay() {
-            let user = prompt("What is your hand? (Rock, Paper, Scissors)");
+            let user = prompt("What is your hand? (Rock = 1, Paper = 2, Scissors = 3)");
             return playRound(user, computerPlay())
 
         }
 
         function playRound(user, computer) {
 
-            let userlowercased = user.toLowerCase();
+            const hands = {
+                1: 'Rock',
+                2: 'Paper',
+                3: 'Scissors'
+            }
+
+            let userlowercased = hands[user].toLowerCase();
             let computerLowerCased = computer.toLowerCase();
 
             if (userlowercased == computerLowerCased) {
@@ -83,23 +89,23 @@
             }
 
             if (userlowercased == "rock" && computerLowerCased == "scissors") {
-                alert(`You Win! ${user} beats ${computer}`)
+                alert(`You Win! ${hands[user]} beats ${computer}`)
                 humanScore += 1
                 return
             }
             if (userlowercased == "paper" && computerLowerCased == "rock") {
-                alert(`You Win! ${user} beats ${computer}`)
+                alert(`You Win! ${hands[user]} beats ${computer}`)
                 humanScore += 1
                 return
             }
             if (userlowercased == "scissors" && computerLowerCased == "paper") {
-                alert(`You Win! ${user} beats ${computer}`)
+                alert(`You Win! ${hands[user]} beats ${computer}`)
                 humanScore += 1
                 return
             }
 
             else {
-                alert(`You Lose! ${computer} beats ${user}`)
+                alert(`You Lose! ${computer} beats ${hands[user]}`)
                 computerScore += 1
                 return
             }
